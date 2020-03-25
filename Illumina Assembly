@@ -1,0 +1,42 @@
+## 1st step is to assemble contigs using Abyss 2.0  https://github.com/bcgsc/abyss#assembling-a-paired-end-library
+## Go to /Abyss/
+## 1st run was with k=30
+
+abyss-pe name=Illumina_Abyss k=30 in='/home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz'
+
+#Took about a month to run on gruezi
+
+Results : (Illumina-scaffold)
+
+
+# contigs (>= 0 bp) 13728566
+# contigs (>= 1000 bp) 154683
+# contigs (>= 5000 bp) 8006
+# contigs (>= 10000 bp) 862
+# contigs (>= 25000 bp) 11
+# contigs (>= 50000 bp) 0
+Total length (>= 0 bp) 1261164747
+Total length (>= 1000 bp) 345992252
+Total length (>= 5000 bp) 57663391
+Total length (>= 10000 bp) 11333214
+Total length (>= 25000 bp) 357744
+Total length (>= 50000 bp) 0
+# contigs 366141
+Largest contig 40468
+Total length 497824260
+GC (%) 40.44
+N50 1686
+N75 906
+L50 81524
+L75 183451
+# N's per 100 kbp 426.24
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted
+(e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+
+n	n:500	L50	min	N75	N50	N25	E-size	max	sum	name
+14.05e6	420953	123940	500	852	1249	1878	1561	16052	477.5e6	Illumina_Abyss-unitigs.fa
+13.75e6	387540	100417	500	904	1552	2420	1954	20601	495.8e6	Illumina_Abyss-contigs.fa
+13.73e6	366141	82119	500	904	1674	3084	2510	39671	495.7e6	Illumina_Abyss-scaffolds.fa
+
+
