@@ -2,12 +2,12 @@
 ## Go to /Abyss/
 ## 1st run was with k=30
 
+
 abyss-pe name=Illumina_Abyss k=30 in='/home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz'
 
 #Took about a month to run on gruezi
 
 Results : (Illumina-scaffold)
-
 
 # contigs (>= 0 bp) 13728566
 # contigs (>= 1000 bp) 154683
@@ -33,10 +33,14 @@ L75 183451
 All statistics are based on contigs of size >= 500 bp, unless otherwise noted
 (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
 
-
 n	n:500	L50	min	N75	N50	N25	E-size	max	sum	name
 14.05e6	420953	123940	500	852	1249	1878	1561	16052	477.5e6	Illumina_Abyss-unitigs.fa
 13.75e6	387540	100417	500	904	1552	2420	1954	20601	495.8e6	Illumina_Abyss-contigs.fa
 13.73e6	366141	82119	500	904	1674	3084	2510	39671	495.7e6	Illumina_Abyss-scaffolds.fa
 
-
+##These statistics are not great. How can we optimise the K value ?
+##We use Kmergenie http://kmergenie.bx.psu.edu/
+##go in Kmergenie folder and create a list of files needed
+ls -1 *.fastq.gz > list_files
+##Run kmergenie for diploids
+./kmergenie list_files --diploid -k 200
