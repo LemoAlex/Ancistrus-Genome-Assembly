@@ -8,4 +8,4 @@ long pac /home/alexandre/PacBio_correct/pacbio-corrected.fasta 500,1000,2000,400
 
 ./FAST-SG.pl -k 30 -t 16 -l /home/alexandre/Fast-SG/fastsg/config_file -r /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa -p Anc_fastsg1 > Ouput.fast-sg.log 
 
-perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/PacBio_correct/pacbio-corrected.fasta.gz -p test_wengan -N 2 -t 10 -g 3000
+perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/PacBio_correct/pacbio-corrected.fasta.gz -p test_wengan -N 2 -t 10 -g 3000> out_wengan.log.txt
