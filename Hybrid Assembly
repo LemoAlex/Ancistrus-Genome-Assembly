@@ -4,6 +4,7 @@
 ## Go in Fast-SG folder
 ## -k = kmer value / -l = our config file (See format below) / -r = Our illumina assembly / -p = Output prefix / -t = cpu
 ##Config file format 5 columns (long pac path XXX 1):
-long pac /home/alexandre/PacBio_correct/pacbio-corrected.fasta 500,1000,2000,4000,6000,8000,10000,12000,14000,16000,18000,20000,30000,40000,50000,60000,70000,80000,100000,120000,150000,180000 1
+long pac /home/alexandre/PacBio_correct/pacbio-corrected.fasta 500,1000,2000,4000,6000,8000,10000,12000,14000,16000,18000,20000,30000 1
 
-./FAST-SG.pl -k 30 -t 16 -l /home/alexandre/Fast-SG/fastsg/config_file -r /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa -p Anc_fastsg1 
+./FAST-SG.pl -k 30 -t 16 -l /home/alexandre/Fast-SG/fastsg/config_file -r /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa -p Anc_fastsg1 > Ouput.fast-sg.log 
+
