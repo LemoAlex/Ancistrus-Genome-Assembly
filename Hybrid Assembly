@@ -8,4 +8,31 @@ long pac /home/alexandre/PacBio_correct/pacbio-corrected.fasta 500,1000,2000,400
 
 ./FAST-SG.pl -k 30 -t 16 -l /home/alexandre/Fast-SG/fastsg/config_file -r /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa -p Anc_fastsg1 > Ouput.fast-sg.log 
 
+
+
+
+
+awk -f fastSG2scaff.awk -v name=$(basename pac.I500.FastSG_K30.fwd.sam) -v k=30 pac.I500.FastSG_K30.fwd.sam
+
+
+
+scaffmatch -m -w scaffma_k30 -c /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa \
+-s 33,82,180,373,600,800,1000,1200,1400,1600,1800,2000,3000 \
+-i 328,820,1795,3732,6000,8000,10000,12000,14000,16000,18000,20000,30000 \
+-p fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr \
+-1 pac.I500.FastSG_K30.sam.fwd.sam,pac.I1000.FastSG_K30.sam.fwd.sam,pac.I2000.FastSG_K30.sam.fwd.sam,pac.I4000.FastSG_K30.sam.fwd.sam,pac.I6000.FastSG_K30.sam.fwd.sam,pac.I8000.FastSG_K30.sam.fwd.sam,pac.I10000.FastSG_K30.sam.fwd.sam,pac.I12000.FastSG_K30.sam.fwd.sam,pac.I14000.FastSG_K30.sam.fwd.sam,pac.I16000.FastSG_K30.sam.fwd.sam,pac.I18000.FastSG_K30.sam.fwd.sam,pac.I20000.FastSG_K30.sam.fwd.sam,pac.I30000.FastSG_K30.sam.fwd.sam \
+-2 pac.I500.FastSG_K30.sam.rev.sam,pac.I1000.FastSG_K30.sam.rev.sam,pac.I2000.FastSG_K30.sam.rev.sam,pac.I4000.FastSG_K30.sam.rev.sam,pac.I6000.FastSG_K30.sam.rev.sam,pac.I8000.FastSG_K30.sam.rev.sam,pac.I10000.FastSG_K30.sam.rev.sam,pac.I12000.FastSG_K30.sam.rev.sam,pac.I14000.FastSG_K30.sam.rev.sam,pac.I16000.FastSG_K30.sam.rev.sam,pac.I18000.FastSG_K30.sam.rev.sam,pac.I20000.FastSG_K30.sam.rev.sam,pac.I30000.FastSG_K30.sam.rev.sam
+
+
+
+
+
+
+
+
+
+
+
+
+
 perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/PacBio_correct/pacbio-corrected.fasta.gz -p test_wengan -N 2 -t 10 -g 3000> out_wengan.log.txt
