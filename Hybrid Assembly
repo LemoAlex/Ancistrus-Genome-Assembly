@@ -21,7 +21,7 @@ scaffmatch -m -w scaffma_k30 -c /home/alexandre/Abyss/Illumina_Abyss-scaffolds.f
 -i 328,820,1795,3732,6000,8000,10000,12000,14000,16000,18000,20000,30000 \
 -p fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr \
 -1 pac.I500.FastSG_K30.sam.fwd.sam,pac.I1000.FastSG_K30.sam.fwd.sam,pac.I2000.FastSG_K30.sam.fwd.sam,pac.I4000.FastSG_K30.sam.fwd.sam,pac.I6000.FastSG_K30.sam.fwd.sam,pac.I8000.FastSG_K30.sam.fwd.sam,pac.I10000.FastSG_K30.sam.fwd.sam,pac.I12000.FastSG_K30.sam.fwd.sam,pac.I14000.FastSG_K30.sam.fwd.sam,pac.I16000.FastSG_K30.sam.fwd.sam,pac.I18000.FastSG_K30.sam.fwd.sam,pac.I20000.FastSG_K30.sam.fwd.sam,pac.I30000.FastSG_K30.sam.fwd.sam \
--2 pac.I500.FastSG_K30.sam.rev.sam,pac.I1000.FastSG_K30.sam.rev.sam,pac.I2000.FastSG_K30.sam.rev.sam,pac.I4000.FastSG_K30.sam.rev.sam,pac.I6000.FastSG_K30.sam.rev.sam,pac.I8000.FastSG_K30.sam.rev.sam,pac.I10000.FastSG_K30.sam.rev.sam,pac.I12000.FastSG_K30.sam.rev.sam,pac.I14000.FastSG_K30.sam.rev.sam,pac.I16000.FastSG_K30.sam.rev.sam,pac.I18000.FastSG_K30.sam.rev.sam,pac.I20000.FastSG_K30.sam.rev.sam,pac.I30000.FastSG_K30.sam.rev.sam
+-2 pac.I500.FastSG_K30.sam.rev.sam,pac.I1000.FastSG_K30.sam.rev.sam,pac.I2000.FastSG_K30.sam.rev.sam,pac.I4000.FastSG_K30.sam.rev.sam,pac.I6000.FastSG_K30.sam.rev.sam,pac.I8000.FastSG_K30.sam.rev.sam,pac.I10000.FastSG_K30.sam.rev.sam,pac.I12000.FastSG_K30.sam.rev.sam,pac.I14000.FastSG_K30.sam.rev.sam,pac.I16000.FastSG_K30.sam.rev.sam,pac.I18000.FastSG_K30.sam.rev.sam,pac.I20000.FastSG_K30.sam.rev.sam,pac.I30000.FastSG_K30.sam.rev.sam >scaffLOG.txt
 
 
 
@@ -35,4 +35,4 @@ scaffmatch -m -w scaffma_k30 -c /home/alexandre/Abyss/Illumina_Abyss-scaffolds.f
 
 
 
-perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/PacBio_correct/pacbio-corrected.fasta.gz -p test_wengan -N 2 -t 10 -g 3000> out_wengan.log.txt
+perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p test_wengan -N 2 -t 10 -g 1500 > out_wengan.log.txt
