@@ -56,4 +56,4 @@ make k=200 && ./kmergenie list_files --diploid -k 200 -l 60
 
 ###Second run with k = 99 and multithreading parameter added (-j)
 
-abyss-pe name=Illumina_Abyss k=99 in='/home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz' -j 12
+abyss-pe name=Illumina_Abyss_K99 k=99 in='/home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz' -j 12
