@@ -45,3 +45,15 @@ ls -1 *.fastq.gz > list_files
 ##Run kmergenie for diploids (max K for kmergenie is actually 151)
 ./kmergenie list_files --diploid -k 190 -l 60
 make k=200 && ./kmergenie list_files --diploid -k 200 -l 60
+
+
+
+
+
+
+
+
+
+###Second run with k = 99 and multithreading parameter added (-j)
+
+abyss-pe name=Illumina_Abyss k=99 in='/home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz' -j 12
