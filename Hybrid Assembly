@@ -32,6 +32,7 @@ perl wengan.pl -x pacraw  -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/
 
 ##wengan v0.2
 ##first, upgrade cmake -3.7.1 to 3.18
+##install minia, and add the executable to wengan/dir here  cp minia_dir/build/bin/minia /wengan/bin/
 
 # Assembling PacBio reads and Illumina reads with WenganM
 perl wengan.pl -x pacraw -a M -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganM -t 20 -g 1200 -D 2
