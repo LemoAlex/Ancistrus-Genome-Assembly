@@ -25,16 +25,13 @@ scaffmatch -m -w scaffma_k30 -c /home/alexandre/Abyss/Illumina_Abyss-scaffolds.f
 
 
 
-
-
-
-
-
-
-
-
-
-
+##wengan v0.1
 perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p test_wengan -N 2 -t 10 -g 1500 > out_wengan.log.txt
-
 perl wengan.pl -x pacraw  -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p test_wengan_A -N 2 -t 10 -c /home/alexandre/Abyss/Illumina_Abyss-contigs.fa  -g 1500 > out_wengan_A.log.txt
+
+
+##wengan v0.2
+##first, upgrade cmake -3.7.1 to 3.18
+
+# Assembling PacBio reads and Illumina reads with WenganM
+perl wengan.pl -x pacraw -a M -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganM -t 20 -g 1200 -D 2
