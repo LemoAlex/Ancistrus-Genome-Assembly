@@ -44,3 +44,16 @@ perl wengan.pl -x pacraw -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/h
 
 # Assembling PacBio reads and Illumina reads with WenganD  --> DiscoVarDeNovo #supposedly best option
 perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganD -t 20 -g 1200 -D 2
+
+
+
+
+
+####checking the quality with busco
+
+export PATH="/path/to/AUGUSTUS/augustus-3.2.3/bin:$PATH"
+export PATH="/path/to/AUGUSTUS/augustus-3.2.3/scripts:$PATH"
+export AUGUSTUS_CONFIG_PATH="/path/to/AUGUSTUS/augustus-3.2.3/config/"
+
+
+
