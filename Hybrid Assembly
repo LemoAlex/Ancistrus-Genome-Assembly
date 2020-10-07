@@ -48,6 +48,26 @@ perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/h
 
 
 
+###Improving the Quality with AGOUTI.
+
+#1. Get the gene prediction file with Augustus
+
+#2. Align transcriptome to genome, using GMAP-GSNAP
+gmap_build -d Ancistrus map genome.fasta -D outFolder
+gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
+
+#3.AGOUTI
+cd ~/AGOUTI-0.3.3
+ python agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.bam -gff ~/augustus-3.3.3/augustus/augustus.gff -outdir ./Ancistrus
+
+
+
+
+
+
+
+
+
 
 ####checking the quality with busco
 
