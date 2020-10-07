@@ -58,7 +58,7 @@ gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtool
 
 #3.AGOUTI
 cd ~/AGOUTI-0.3.3
- python agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.bam -gff ~/augustus-3.3.3/augustus/augustus.gff -outdir ./Ancistrus
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.bam -gff ./augustus.gff3 -outdir ./Ancistrus
 
 
 
