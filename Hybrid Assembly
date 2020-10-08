@@ -57,8 +57,8 @@ gmap_build -d Ancistrus map genome.fasta -D outFolder
 gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
 
 #3.AGOUTI
-cd ~/AGOUTI-0.3.3
- python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.bam -gff ./augustus.gff3 -outdir ./Ancistrus
+cd ~/AGOUTI
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.bwa.bam -gff ./ancistrus.gff3 -outdir ./Ancistrus
 
 
 
