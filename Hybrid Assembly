@@ -56,11 +56,22 @@ perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/h
 gmap_build -d Ancistrus map genome.fasta -D outFolder
 gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
 
+
+
+
+ Mapping and alignment: If you want to map the cDNAs to a genome,
+  and show the full alignment, provide the -A flag:
+
+    gmap -d /Ancistrus_map -A /home/alexandre/Adoli.fa
+
+
+
 #3.AGOUTI
 cd ~/AGOUTI
- python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.bwa.bam -gff ./ancistrus.gff3 -outdir ./Ancistrus
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus
 
 
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus2 --minFracOvl 0 -maxFracMM 0.05
 
 
 
