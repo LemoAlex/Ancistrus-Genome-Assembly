@@ -74,10 +74,16 @@ cd ~/AGOUTI
  python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus2 --minFracOvl 0 -maxFracMM 0.05
 
 
+##shredding
+python2 agouti.py shred -assembly ../wengan/Anc_WenganD.SPolished.asm.wengan.fasta -p Anc.shred
+
+./gmap_build -d Ancistrus.shred /home/alexandre/AGOUTI/Anc.shred.ctg.fasta -D outFolder ##then move outfolder to /usr/local/share
+./gsnap -d /Ancistrus.shred -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort -n - > Ancistrus.out.bam  ##done in /usr/local/share
 
 
-
-
+##all at once --> exactly the 
+ython2 agouti.py shred -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -gff ./out.augustus.gff3 -p scaffold
+python2 agouti.py scaffold -assembly scaffold.ctg.fasta -bam Ancistrus.out.sorted.bam -gff scaffold.ctg.gff -outdir ./Ancistrus.shredded
 
 
 ####checking the quality with busco
