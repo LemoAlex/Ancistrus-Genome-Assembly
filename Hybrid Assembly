@@ -87,9 +87,7 @@ python2 agouti.py scaffold -assembly Anc.shred.ctg.fasta -bam Ancistrus.shred.ou
 
 ####checking the quality with busco
 
-export PATH="/path/to/AUGUSTUS/augustus-3.2.3/bin:$PATH"
-export PATH="/path/to/AUGUSTUS/augustus-3.2.3/scripts:$PATH"
-export AUGUSTUS_CONFIG_PATH="/path/to/AUGUSTUS/augustus-3.2.3/config/"
+busco -i /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -l actinopterygii_odb10 -m genome -o test --config /home/alexandre/busco/config/config.ini
 
 
 
