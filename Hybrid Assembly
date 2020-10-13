@@ -96,3 +96,6 @@ busco -i /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -l actinopterygii
 ### Tandem Repeats Finder
  trf Ancistrus.best.fasta 2 7 7 80 10 50 500 -f -d -m
 
+##repeatmasker
+
+RepeatMasker /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -nolow-no_is -norna -parallel 1 -noLowSimple –pvalue 1e-4
