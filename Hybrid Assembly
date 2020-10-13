@@ -90,4 +90,9 @@ python2 agouti.py scaffold -assembly Anc.shred.ctg.fasta -bam Ancistrus.shred.ou
 busco -i /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -l actinopterygii_odb10 -m genome -o test --config /home/alexandre/busco/config/config.ini
 
 
+###genome annotaion with GAG
+ python gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g /home/alexandre/AGOUTI/Ancistrus/agouti.agouti.gff -o Test
+
+### Tandem Repeats Finder
+ trf Ancistrus.best.fasta 2 7 7 80 10 50 500 -f -d -m
 
