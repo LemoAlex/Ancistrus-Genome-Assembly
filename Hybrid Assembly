@@ -67,13 +67,14 @@ gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtool
 ##test minimap2 alignment
 ./minimap2 -d ref.ancistrus ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta # indexing
 ./minimap2 -ax asm5 ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta ~/Adoli.fa > ancistrus.minimap.sam       # assembly to assembly/ref alignment
- samtools view -bS ancistrus.minimap.sam | samtools sort -n > Ancistrus.minimap.bam
-
+ #samtools view -bS ancistrus.minimap.sam | samtools sort -n > Ancistrus.minimap.bam
+samtools view -bS ancistrus.minimap.sam > Ancistrus.minimap.bam
+samtools sort -n Ancistrus.minimap.bam > Ancistrus.minimap.sorted.bam
 #3.AGOUTI
 cd ~/AGOUTI
  python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus ##RENAMED TO "Ancistrus.best.fasta"
  python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus2 --minFracOvl 0 -maxFracMM 0.05
-
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.minimap.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus3
 
 ##shredding
 python2 agouti.py shred -assembly ../wengan/Anc_WenganD.SPolished.asm.wengan.fasta -p Anc.shred
