@@ -1,0 +1,54 @@
+##################AGOUTI.
+
+#1. Get the gene prediction file with Augustus
+
+augustus --species=zebrafish Ancistrus.fasta  --outfile=out.augustus.gff 
+
+
+#2. Align transcriptome to genome, using GMAP-GSNAP
+gmap_build -d Ancistrus map genome.fasta -D outFolder
+gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
+
+ Mapping and alignment: If you want to map the cDNAs to a genome,
+  and show the full alignment, provide the -A flag:
+
+    gmap -d /Ancistrus_map -A /home/alexandre/Adoli.fa
+
+##test minimap2 alignment
+./minimap2 -d ref.ancistrus ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta # indexing
+./minimap2 -ax asm5 ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta ~/Adoli.fa > ancistrus.minimap.sam       # assembly to assembly/ref alignment
+ #samtools view -bS ancistrus.minimap.sam | samtools sort -n > Ancistrus.minimap.bam
+samtools view -bS ancistrus.minimap.sam > Ancistrus.minimap.bam
+samtools sort -n Ancistrus.minimap.bam > Ancistrus.minimap.sorted.bam
+##minimap not great here.
+
+
+#3.AGOUTI
+cd ~/AGOUTI
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus ##RENAMED TO "Ancistrus.best.fasta"
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.out.sorted.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus2 --minFracOvl 0 -maxFracMM 0.05
+ python2 agouti.py scaffold -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -bam ./Ancistrus.minimap.bam -gff ./out.augustus.gff3 -outdir ./Ancistrus3
+
+##shredding approach
+python2 agouti.py shred -assembly ../wengan/Anc_WenganD.SPolished.asm.wengan.fasta -p Anc.shred
+./gmap_build -d Ancistrus.shred /home/alexandre/AGOUTI/Anc.shred.ctg.fasta -D outFolder ##then move outfolder to /usr/local/share
+./gsnap -d /Ancistrus.shred -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort -n - > Ancistrus.out.bam  ##done in /usr/local/share
+##all at once --> exactly the 
+python2 agouti.py shred -assembly ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta -gff ./out.augustus.gff3 -p scaffold
+python2 agouti.py scaffold -assembly scaffold.ctg.fasta -bam Ancistrus.out.sorted.bam -gff scaffold.ctg.gff -outdir ./Ancistrus.shredded
+python2 agouti.py scaffold -assembly Anc.shred.ctg.fasta -bam Ancistrus.shred.out.bam -gff out.shred.augustus -outdir ./Ancistrus.shred
+##best is without shredding.
+
+
+
+########### L_RNA_SEQ APPROACH ###########
+
+First we need to generate the input file (psl) using BLAT.
+ PSL file and genome fragment fasta file are necessary for scaffolding. 
+
+
+cd ~/data/bin/blat
+cd ~/L_RNA_scaffolder-src/create.input
+~/data/bin/faToTwoBit ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta Ancistrus.2bit
+
+~/data/bin/blat/blat -stepSize=5 -repMatch=2253 -minScore=20 -noHead -minIdentity=0 Ancistrus.2bit ~/Adoli.fa Ancistrus.blat.psl 
