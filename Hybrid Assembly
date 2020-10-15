@@ -98,7 +98,8 @@ busco -i /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -l actinopterygii
 
 
 ###genome annotaion with GAG
- python gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g /home/alexandre/AGOUTI/Ancistrus/agouti.agouti.gff -o Test
+ python2 gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g /home/alexandre/GAG-2.0.1/out.best.augustus2.gff3 -o Test
+ python2 gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g TEST.gff3 -o Test2
 
 ### Tandem Repeats Finder
  trf Ancistrus.best.fasta 2 7 7 80 10 50 500 -f -d -m
