@@ -46,6 +46,9 @@ perl wengan.pl -x pacraw -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/h
 perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganD -t 20 -g 1200 -D 2
 
 
+###SPADES#####
+cd /home/alexandre/spades/
+spades.py -t 4 --pacbio /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz --pe1-1 /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz --pe1-2 /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -o /home/alexandre/spades/spades_test
 
 
 ###Improving the Quality with AGOUTI.
