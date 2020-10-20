@@ -49,6 +49,7 @@ First we need to generate the input file (psl) using BLAT.
 
 cd ~/data/bin/blat
 cd ~/L_RNA_scaffolder-src/create.input
-~/data/bin/faToTwoBit ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta Ancistrus.2bit
+~/data/bin/faToTwoBit ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta Ancistrus.2bit  ##input preparation
+~/data/bin/blat/blat -stepSize=5 -repMatch=2253 -minScore=20 -noHead -minIdentity=0 Ancistrus.2bit ~/Adoli.fa Ancistrus.blat.psl ##input preparation
 
-~/data/bin/blat/blat -stepSize=5 -repMatch=2253 -minScore=20 -noHead -minIdentity=0 Ancistrus.2bit ~/Adoli.fa Ancistrus.blat.psl 
+ sh L_RNA_scaffolder.sh -d ./ -i Ancistrusblat.psl -j ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta
