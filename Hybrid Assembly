@@ -37,7 +37,7 @@ perl wengan.pl -x pacraw  -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/
 
 
 # Assembling PacBio reads and Illumina reads with WenganM  --> Minia, "fastest" option.
-perl wengan.pl -x pacraw -a M -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganM -t 20 -g 1200 -D 2
+perl wengan.pl -x pacraw -a M -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganM -t 20 -g 1200 -D 2 -N 2
 
 # Assembling PacBio reads and Illumina reads with WenganA  --> Abyss
 perl wengan.pl -x pacraw -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganA -t 20 -g 1200 -D 2 -N 2
