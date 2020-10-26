@@ -16,4 +16,4 @@ c
 
 ##testing
 ~/last-1133/scripts/last-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR ~/wengan/Anc_WenganD.2.SPolished.asm.wengan.fasta> Ict-Anc.test.mat
-~/last-1133/src/lastal -m50 -E0.05 -C2 -l 1000 Ict-Anc.test.mat Ch.catfish-NEAR ~/wengan/Anc_WenganD.2.SPolished.asm.wengan.fasta| ~/last-1133/src/last-split -m1 > ict-Anc.test.maf
+tpg
