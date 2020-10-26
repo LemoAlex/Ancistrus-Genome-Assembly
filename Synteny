@@ -4,14 +4,14 @@ We will first need to align our assembled genome to a reference genome ( here: c
 
 
 ##first create index of I. Punctatus
-lastdb -P4 -uNEAR -R01 Ch.catfish-NEAR Assembly.fasta                      
+~/last-1133/src/lastdb -P4 -uNEAR -R01 Ch.catfish-NEAR Assembly.fasta                      
 
 
 ##Create matrice for substitution and gap frequencies between species
-last-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR Assembly.Ancistrus.fasta > Ict-Anc.mat
+~/last-1133/scriptslast-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR Assembly.Ancistrus.fasta > Ict-Anc.mat
 
 ##alignment with minimum 1MB length (-l 1000)
-lastal -m50 -E0.05 -C2 -l 1000 Ict-Anc.mat Ch.catfish-NEAR Assembly.Ancistrus.fa | last-split -m1 > ict-Anc.maf
+~/last-1133/src/lastal -m50 -E0.05 -C2 -l 1000 Ict-Anc.mat Ch.catfish-NEAR Assembly.Ancistrus.fa | last-split -m1 > ict-Anc.maf
 
 
 
