@@ -5,6 +5,14 @@
 augustus --species=zebrafish Ancistrus.fasta  --outfile=out.augustus.gff 
 
 
+
+##2.1 Try to align single-end seq, using bwa.
+
+cd Transcriptomics
+bwa index -p ~/.../Anc_WenganD.2.SPolished.asm.wengan.fasta
+bwa mem -p Ancistrus.bwa Anc.lib1.RNA.fa Anc.lib2.RNA.fa
+
+
 #2. Align transcriptome to genome, using GMAP-GSNAP
 gmap_build -d Ancistrus map genome.fasta -D outFolder
 gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
