@@ -1,29 +1,3 @@
-## The goal here is to combine our previously assembled Illumina assembly and our LordEC corrected PacBio Reads.
-## We Use Fast-SG : https://github.com/adigenova/fast-sg
-
-## Go in Fast-SG folder
-## -k = kmer value / -l = our config file (See format below) / -r = Our illumina assembly / -p = Output prefix / -t = cpu
-##Config file format 5 columns (long pac path XXX 1):
-long pac /home/alexandre/PacBio_correct/pacbio-corrected.fasta 500,1000,2000,4000,6000,8000,10000,12000,14000,16000,18000,20000,30000 1
-
-./FAST-SG.pl -k 30 -t 16 -l /home/alexandre/Fast-SG/fastsg/config_file -r /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa -p Anc_fastsg1 > Ouput.fast-sg.log 
-
-
-
-
-
-awk -f fastSG2scaff.awk -v name=$(basename pac.I500.FastSG_K30.fwd.sam) -v k=30 pac.I500.FastSG_K30.fwd.sam
-
-
-
-scaffmatch -m -w scaffma_k30 -c /home/alexandre/Abyss/Illumina_Abyss-scaffolds.fa \
--s 33,82,180,373,600,800,1000,1200,1400,1600,1800,2000,3000 \
--i 328,820,1795,3732,6000,8000,10000,12000,14000,16000,18000,20000,30000 \
--p fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr,fr \
--1 pac.I500.FastSG_K30.sam.fwd.sam,pac.I1000.FastSG_K30.sam.fwd.sam,pac.I2000.FastSG_K30.sam.fwd.sam,pac.I4000.FastSG_K30.sam.fwd.sam,pac.I6000.FastSG_K30.sam.fwd.sam,pac.I8000.FastSG_K30.sam.fwd.sam,pac.I10000.FastSG_K30.sam.fwd.sam,pac.I12000.FastSG_K30.sam.fwd.sam,pac.I14000.FastSG_K30.sam.fwd.sam,pac.I16000.FastSG_K30.sam.fwd.sam,pac.I18000.FastSG_K30.sam.fwd.sam,pac.I20000.FastSG_K30.sam.fwd.sam,pac.I30000.FastSG_K30.sam.fwd.sam \
--2 pac.I500.FastSG_K30.sam.rev.sam,pac.I1000.FastSG_K30.sam.rev.sam,pac.I2000.FastSG_K30.sam.rev.sam,pac.I4000.FastSG_K30.sam.rev.sam,pac.I6000.FastSG_K30.sam.rev.sam,pac.I8000.FastSG_K30.sam.rev.sam,pac.I10000.FastSG_K30.sam.rev.sam,pac.I12000.FastSG_K30.sam.rev.sam,pac.I14000.FastSG_K30.sam.rev.sam,pac.I16000.FastSG_K30.sam.rev.sam,pac.I18000.FastSG_K30.sam.rev.sam,pac.I20000.FastSG_K30.sam.rev.sam,pac.I30000.FastSG_K30.sam.rev.sam >scaffLOG.txt
-
-
 
 ##wengan v0.1
 perl wengan.pl -x pacraw  -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p test_wengan -N 2 -t 10 -g 1500 > out_wengan.log.txt
@@ -45,6 +19,11 @@ perl wengan.pl -x pacraw -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/h
 # Assembling PacBio reads and Illumina reads with WenganD  --> DiscoVarDeNovo #supposedly best option
 perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganD.2 -t 20 -g 1200 -D 2 -N 2
 
+
+#####HASLR#######
+
+haslr.py -t 2 -o ancistrus -g .6m -l ecoli_filtered.fastq.gz -x pacbio -s ecoli_miseq.1.fastq.gz ecoli_miseq.2.fastq.gz
+haslr.py -t 2 -o ./ancistrus -g 950m -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -x pacbio -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz
 
 ###SPADES#####
 cd /home/alexandre/spades/
