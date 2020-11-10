@@ -1,3 +1,5 @@
+
+sed -n '1~4s/^@/>/p;2~4p' in.fastq > out.fasta 
 ##################AGOUTI.
 
 #1. Get the gene prediction file with Augustus
@@ -5,7 +7,8 @@
 augustus --species=zebrafish Ancistrus.fasta  --outfile=out.augustus.gff 
 
 
-
+./pblat -threads=2 Anc_WenganD.2.SPolished.asm.wengan.fasta Single.ANC.Rna.fasta out=psl out.anc.single.psl ##input preparation
+./pblat -threads=4 -noHead Anc_WenganD.2.SPolished.asm.wengan.fasta Adoli.fa out=psl Anc.wholeTra.psl 
 ##2.1 Try to align single-end seq, using bwa.
 
 cd Transcriptomics
@@ -61,3 +64,8 @@ cd ~/L_RNA_scaffolder-src/create.input
 ~/data/bin/blat/blat -stepSize=5 -repMatch=2253 -minScore=20 -noHead -minIdentity=0 Ancistrus.2bit ~/Adoli.fa Ancistrus.blat.psl ##input preparation
 
  sh L_RNA_scaffolder.sh -d ./ -i Ancistrusblat.psl -j ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta
+ 
+ ##with single end reads insteaed of transcriptome
+ ./pblat -threads=4 Anc_WenganD.2.SPolished.asm.wengan.fasta Single.ANC.Rna.fasta out=psl out.anc.single.psl ##input preparation
+
+  sh ../../L_RNA_scaffolder.sh -d /usr/bin/perl -i out.anc.single.psl -j Anc_WenganD.2.SPolished.asm.wengan.fasta
