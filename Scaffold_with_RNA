@@ -7,8 +7,6 @@ sed -n '1~4s/^@/>/p;2~4p' in.fastq > out.fasta
 augustus --species=zebrafish Ancistrus.fasta  --outfile=out.augustus.gff 
 
 
-./pblat -threads=2 Anc_WenganD.2.SPolished.asm.wengan.fasta Single.ANC.Rna.fasta out=psl out.anc.single.psl ##input preparation
-./pblat -threads=4 -noHead Anc_WenganD.2.SPolished.asm.wengan.fasta Adoli.fa out=psl Anc.wholeTra.psl 
 ##2.1 Try to align single-end seq, using bwa.
 
 cd Transcriptomics
@@ -62,6 +60,10 @@ cd ~/data/bin/blat
 cd ~/L_RNA_scaffolder-src/create.input
 ~/data/bin/faToTwoBit ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta Ancistrus.2bit  ##input preparation
 ~/data/bin/blat/blat -stepSize=5 -repMatch=2253 -minScore=20 -noHead -minIdentity=0 Ancistrus.2bit ~/Adoli.fa Ancistrus.blat.psl ##input preparation
+
+
+./pblat -threads=2 -noHead Anc_WenganD.2.SPolished.asm.wengan.fasta Single.ANC.Rna.fasta out=psl out.anc.single.psl ##input preparation
+./pblat -threads=4 -noHead Anc_WenganD.2.SPolished.asm.wengan.fasta Adoli.fa out=psl Anc.wholeTra.psl 
 
  sh L_RNA_scaffolder.sh -d ./ -i Ancistrusblat.psl -j ~/wengan/Anc_WenganD.SPolished.asm.wengan.fasta
  
