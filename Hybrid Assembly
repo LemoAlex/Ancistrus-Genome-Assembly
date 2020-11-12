@@ -20,7 +20,7 @@ perl wengan.pl -x pacraw -a A -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/h
 perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_WenganD.2 -t 20 -g 1200 -D 2 -N 2
 
 #testing
-perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_D.test -t 20 -g 950 -D 2 -N 2 -d 5 -q 20
+perl wengan.pl -x pacraw -a D -s /home/alexandre/Genome/Anc1/compressed/Anc1_R1.fastq.gz,/home/alexandre/Genome/Anc1/compressed/Anc1_R2.fastq.gz -l /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz -p Anc_D.test -t 20 -g 950 -D 2 -N 2 -d 5 -q 20
 #####HASLR#######
 
 haslr.py -t 2 -o ancistrus -g .6m -l ecoli_filtered.fastq.gz -x pacbio -s ecoli_miseq.1.fastq.gz ecoli_miseq.2.fastq.gz
