@@ -1,3 +1,9 @@
+######assemble transcriptome with trinity
+
+./Trinity --seqType fa --single /home/alexandre/Transcriptomics/Anc.lib1.RNA.fa, /home/alexandre/Transcriptomics/Anc.lib2.RNA.fa --trimmomatic --output Anc.transcriptome.trinity  --max_memory 40G
+
+./Trinity --seqType fa --single /home/alexandre/Transcriptomics/lib.RNA --trimmomatic --output Anc.transcriptome.trinity  --max_memory 40G
+
 
 sed -n '1~4s/^@/>/p;2~4p' in.fastq > out.fasta 
 ##################AGOUTI.
