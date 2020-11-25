@@ -81,10 +81,6 @@ find pslOutput -name "*.psl" | xargs -i cat {} > newAlignments.psl
 # combine the genome-wide lastz results (the combined psl file that was used to create the input chains) and the newly found psl alignments
 cat genomeWide.lastz.psl newAlignments.psl > all.psl 
 
- ./pblat -threads=2 ~/Genome/Anc_WenganD.2.SPolished.asm.wengan.fasta ~/Transcriptomics/Adoli.RNA.fa out=psl Ancistrus.xaa.psl ##input preparation
-
-
-
- ./pblat -threads=2 ~/Genome/Anc_WenganD.2.SPolished.asm.wengan.fasta ~/Transcriptomics/Adoli_noadapt_onlyAdoli_full.fq out=psl Ancistrus.final.psl ##input preparation
+./pblat -threads=2 ~/Genome/Anc_WenganD.2.SPolished.asm.wengan.fasta ~/Transcriptomics/Adoli.RNA.fa out=psl Ancistrus.xaa.psl ##input preparation
 
   sh ../../L_RNA_scaffolder.sh -d /usr/bin/perl -i out.anc.single.psl -j Anc_WenganD.2.SPolished.asm.wengan.fasta
