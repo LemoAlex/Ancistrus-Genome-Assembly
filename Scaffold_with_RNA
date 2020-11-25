@@ -2,7 +2,7 @@
 
 ./Trinity --seqType fa --single /home/alexandre/Transcriptomics/Anc.lib1.RNA.fa, /home/alexandre/Transcriptomics/Anc.lib2.RNA.fa --trimmomatic --output Anc.transcriptome.trinity  --max_memory 40G
 
-./Trinity --seqType fq --single /home/alexandre/Transcriptomics/Adoli_noadapt_onlyAdoli_full.fq --output Anc.transcriptome.trinity  --max_memory 30G --CPU 1 --no_normalize_reads 
+./Trinity --seqType fq --single /home/alexandre/Transcriptomics/Adoli_noadapt_onlyAdoli_full.fq --output Anc.transcriptome.trinity --trimmomatic --max_memory 30G --CPU 1 --no_normalize_reads 
 
 
 sed -n '1~4s/^@/>/p;2~4p' in.fastq > out.fasta 
