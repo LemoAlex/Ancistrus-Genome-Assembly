@@ -8,3 +8,12 @@ dedupe.sh in=Ancistrus.fa out=Assembly.unique.fasta minidentity=90
 ####cluster
 
 ./psi-cd-hit -i ~/Genome/Assembly.unique.fasta -o Anc.uni.cl.fasta -c 0.99 -sl 1000000 -prog megablast
+
+
+
+
+
+
+##kraken. remove contamination
+
+kraken2-build --standard --db Anc --threads 2 --standard
