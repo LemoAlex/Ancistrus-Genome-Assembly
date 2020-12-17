@@ -103,7 +103,7 @@ python2 agouti.py scaffold -assembly Anc.shred.ctg.fasta -bam Ancistrus.shred.ou
 
 ####checking the quality with busco
 
-busco -i /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -l actinopterygii_odb10 -m genome -o test --config /home/alexandre/busco/config/config.ini
+nice -n 19 busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actinopterygii_odb10 -m genome -o Anc.gen.busco --config /home/alexandre/busco/config/config.ini 
 
 
 
