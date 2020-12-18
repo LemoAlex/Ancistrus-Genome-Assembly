@@ -13,4 +13,4 @@ c
 ##testing
 ~/last-1133/scripts/last-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR ~/wengan/Anc_WenganD.2.SPolished.asm.wengan.fasta> Ict-Anc.test.mat
 
-nice -n 19 ~/last-1133/src/lastal -m50 -E0.05 -C2 -p Ict-Anc.test.mat  Ch.catfish-NEAR  ~/Genome/AncTri.Genome.Assembly.fasta  ‑‑format=general:nmismatch,name1,strand1,start1,end1,name2,strand2,start2,end2,length1,length2 | ~/last-1133/src/last-split -m1 > ict-anc.test.1000.maf
+nice -n 19 ~/last-1133/src/lastal -m50 -E0.05 -C2 -p Ict-Anc.mat  Ch.catfish-NEAR  ~/Genome/AncTri.Genome.Assembly.fasta  ‑‑format=general:nmismatch,name1,strand1,start1,end1,name2,strand2,start2,end2,length1,length2 | ~/last-1133/src/last-split -m1 > ict-anc.test.1000.maf
