@@ -118,7 +118,7 @@ nice -n 19 busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actin
 
 ##RepeatModel
 ./dfam-tetools.sh
-BuildDatabase -name Ancistrus_db Ancistrus.best.fasta
+BuildDatabase -name Ancistrus_db /home/alexandre/Genome/AncTri.Genome.Assembly.fasta
     nohup <RepeatModelerPath>/RepeatModeler -database Ancistrus_db  -pa 20 -LTRStruct >& run.out &
 ##repeatmasker
 
