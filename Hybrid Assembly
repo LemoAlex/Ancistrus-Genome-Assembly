@@ -94,9 +94,11 @@ RepeatMasker /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -nolow-no_is 
 
 
 ###Annotation and prediction
+export AUGUSTUS_CONFIG_PATH=/home/alexandre/augustus-3.3.3/config/
 
 funannotate sort -i input -o output
 
 funannotate mask -i ~/funnanotate/AncTri.Genome.sc.fasta  -o ~/funnanotate/AncTri.masked -cpus 4
 
+funannotate predict -i ~/funnanotate/AncTri.Genome.sc.fasta -o ./output -s "Ancistrus Triradiatus"
 
