@@ -32,34 +32,6 @@ python ./bin/haslr.py -t 2 -o ./ancistrus -g 950m -l /home/alexandre/Genome/PacB
 ./SparseAssembler LD 0 k 99 g 15 NodeCovTh 1 EdgeCovTh 0 GS 980000 f1 /home/alexandre/Genome/Anc1/Anc1_R1.fastq f2 /home/alexandre/Genome/Anc1/Anc1_R2.fastq
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-###SPADES#####
-cd /home/alexandre/spades/
-spades.py -t 4 --pacbio /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz --pe1-1 /home/alexandre/Genome/Anc1/Anc1_R1.fastq.gz --pe1-2 /home/alexandre/Genome/Anc1/Anc1_R2.fastq.gz -o /home/alexandre/spades/spades_test
-
-
-
-
-
-
-
-
-
-
-
-
 ###Improving the Quality with AGOUTI.
 
 #1. Get the gene prediction file with Augustus
@@ -67,9 +39,6 @@ spades.py -t 4 --pacbio /home/alexandre/Genome/PacBio/Pacbio_data.fastq.gz --pe1
 #2. Align transcriptome to genome, using GMAP-GSNAP
 gmap_build -d Ancistrus map genome.fasta -D outFolder
 gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
-
-
-
 
  Mapping and alignment: If you want to map the cDNAs to a genome,
   and show the full alignment, provide the -A flag:
@@ -108,7 +77,6 @@ nice -n 19 busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actin
 
 
 
-
 ###genome annotaion with GAG
  python2 gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g /home/alexandre/GAG-2.0.1/out.best.augustus2.gff3 -o Test
  python2 gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g TEST.gff3 -o Test2
@@ -123,3 +91,12 @@ BuildDatabase -name Ancistrus_db /home/alexandre/Genome/AncTri.Genome.Assembly.f
 ##repeatmasker
 
 RepeatMasker /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -nolow-no_is -norna -parallel 1 -noLowSimple –pvalue 1e-4
+
+
+###Annotation and prediction
+
+funannotate sort -i input -o output
+
+funannotate mask -i ~/funnanotate/AncTri.Genome.sc.fasta  -o ~/funnanotate/AncTri.masked -cpus 4
+
+
