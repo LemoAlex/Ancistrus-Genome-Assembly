@@ -40,6 +40,9 @@ python ./bin/haslr.py -t 2 -o ./ancistrus -g 950m -l /home/alexandre/Genome/PacB
 gmap_build -d Ancistrus map genome.fasta -D outFolder
 gsnap -d /Ancistrus_map -t 6 -B 2 -N 1 -A sam /home/alexandre/Adoli.fa | samtools view -bS - | samtools sort - > Ancistrus.out.bam  ##done in /usr/local/share
 
+gsnap -d ./Ancistrus.idx -t 6 -B 2 -N 1 -A sam ~/funannotate/Alignment/Tran.fa | samtools view -bS - | samtools sort -n > Ancistrus.out.bam  ##done in /usr/local/share
+
+
  Mapping and alignment: If you want to map the cDNAs to a genome,
   and show the full alignment, provide the -A flag:
 
@@ -100,5 +103,8 @@ funannotate sort -i input -o output
 
 funannotate mask -i ~/funnanotate/AncTri.Genome.sc.fasta  -o ~/funnanotate/AncTri.masked -cpus 4
 
-funannotate predict -i ~/funnanotate/AncTri.Genome.sc.fasta -o ./output -s "Ancistrus Triradiatus"
+nice -n 19 ./funannotate-docker predict -i ~/funannotate/AncTri.masked.fa -o ./output1 -s "Ancistrus Triradiatus" --transcript_evidence ~/funannotate/Alignment/Tran.fa --optimize_augustus --other_gff ~/funannotate/Trinity.fasta.transdecoder.gff3 --cpus 4
 
+--rna_bam ~/funannotate/Alignment/Alignment.bam 
+funannotate predict -i genome.fasta --species "Genome awesomenous" --isolate T12345 \
+    --transcript_evidence trinity.fasta --rna_bam alignments.bam --pasa_gff pasa.gff3
