@@ -103,9 +103,5 @@ funannotate sort -i input -o output
 
 funannotate mask -i ~/funnanotate/AncTri.Genome.sc.fasta  -o ~/funnanotate/AncTri.masked -cpus 4
 
-nice -n 19 ./funannotate-docker predict -i ~/funannotate/AncTri.masked.fa -o ./output1 -s "Ancistrus Triradiatus" --transcript_evidence ~/funannotate/Alignment/Tran.fa --optimize_augustus --other_gff ~/funannotate/Trinity.fasta.transdecoder.gff3  --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --organism other --cpus 4
+nice -n 19 ./funannotate-docker predict -i ~/funannotate/AncTri.masked.fa -o ./output1 -s "Ancistrus Triradiatus" --transcript_evidence ~/funannotate/Alignment/Tran.fa --optimize_augustus --other_gff ~/funannotate/Trinity.fasta.transdecoder.gff3  --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --organism other --rna_bam ~/funannotate/sorted.bam --weights codingquarry:1 --cpus 4
 
---rna_bam ~/funannotate/Alignment/Ancistrus.gsnap.bam
-
-funannotate predict -i genome.fasta --species "Genome awesomenous" --isolate T12345 \
-    --transcript_evidence trinity.fasta --rna_bam alignments.bam --pasa_gff pasa.gff3
