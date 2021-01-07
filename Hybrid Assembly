@@ -77,7 +77,8 @@ python2 agouti.py scaffold -assembly Anc.shred.ctg.fasta -bam Ancistrus.shred.ou
 
 nice -n 19 busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actinopterygii_odb10 -m genome -o Anc.gen.busco --config /home/alexandre/busco/config/config.ini 
 
-
+#4.14
+nice -n 19 ./busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actinopterygii_odb10 -m genome -o Anc.gen.busco.414 --config /home/alexandre/busco413/busco/config/config.ini
 
 
 ###genome annotaion with GAG
