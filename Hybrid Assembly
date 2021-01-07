@@ -77,9 +77,10 @@ python2 agouti.py scaffold -assembly Anc.shred.ctg.fasta -bam Ancistrus.shred.ou
 
 nice -n 19 busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actinopterygii_odb10 -m genome -o Anc.gen.busco --config /home/alexandre/busco/config/config.ini 
 
-#4.14
+#4.14 gen
 nice -n 19 ./busco -i /home/alexandre/Genome/AncTri.Genome.Assembly.fasta -l actinopterygii_odb10 -m genome -o Anc.gen.busco.414 --config /home/alexandre/busco413/busco/config/config.ini
-
+#4.14 tran
+nice -n 19 ./busco -i /home/alexandre/Transcriptomics/Trinity.fasta -l actinopterygii_odb10 -m transcriptome -o Anc.tran.busco.414 --config /home/alexandre/busco413/busco/config/config.tran.ini
 
 ###genome annotaion with GAG
  python2 gag.py  -f /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -g /home/alexandre/GAG-2.0.1/out.best.augustus2.gff3 -o Test
