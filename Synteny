@@ -3,10 +3,10 @@ We will first need to align our assembled genome to a reference genome ( here: c
 ### Alignment using LAST
 
 #first create index of I. Punctatus
-~/last-1133/src/lastdb -P4 -uNEAR -R01 Ch.catfish-NEAR Assembly.fasta                      
+~/last-1133/src/lastdb -P4 -uNEAR -R01 Ch.catfish-NEAR /home/alexandre/circos/create.input/ncbi-genomes-2020-10-26/GCA_001660625.2_IpCoco_1.2_genomic.fna                     
 
 ##Create matrice for substitution and gap frequencies between species
-~/last-1133/scriptslast-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR ~/Genome/AncTri.Genome.Assembly.fasta > Ict-Anc.mat
+~/last-1133/scripts/last-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR ~/Genome/AncTri.Genome.FinalAssembly.fasta > Ict-Anc.mat
 
 ##alignment with minimum 1MB length (-l 1000)
 c
@@ -14,4 +14,6 @@ c
 
 ~/last-1133/scripts/last-train -P4 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish-NEAR  ~/Genome/AncTri.Genome.Assembly.fasta > Ict-Anc.mat
 
-nice -n 19 ~/last-1133/src/lastal -m50 -E0.05 -C2 -p Ict-Anc.mat  Ch.catfish-NEAR  ~/Genome/AncTri.Genome.Assembly.fasta  ‑‑format=general:nmismatch,name1,strand1,start1,end1,name2,strand2,start2,end2,length1,length2 | ~/last-1133/src/last-split -m1 > ict-anc.test.1000.maf
+nice -n 19 ~/last-1133/src/lastal -m50 -E0.05 -C2 -p Ict-Anc.mat  Ch.catfish-NEAR  ~/Genome/AncTri.Genome.FinalAssembly.fasta  ‑‑format=general:nmismatch,name1,strand1,start1,end1,name2,strand2,start2,end2,length1,length2 | ~/last-1133/src/last-split -m1 > Ict-Anc.maf
+
+
