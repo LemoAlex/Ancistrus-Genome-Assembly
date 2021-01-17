@@ -107,3 +107,4 @@ funannotate mask -i ~/funnanotate/AncTri.Genome.sc.fasta  -o ~/funnanotate/AncTr
 
 nice -n 19 ./funannotate-docker predict -i ~/funannotate/AncTri.masked.fa -o ./output1 -s "Ancistrus Triradiatus" --transcript_evidence /home/alexandre/funannotate/Alignment/Tran.fa --optimize_augustus --other_gff /home/alexandre/funannotate/Tran.fa.transdecoder.gff3  --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --organism other --rna_bam ~/funannotate/sorted.bam --busco_db actinopterygii --weights codingquarry:1 --cpus 4
 
+nice -n 19 ./funannotate-docker predict -i ~/funannotate/AncTri.masked.fa -o /home/alexandre/funannotate/train/fun.train.1/ -s "Ancistrus Triradiatus" --optimize_augustus  --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --organism other --rna_bam ~/funannotate/sorted.bam --busco_db actinopterygii --weights codingquarry:1 --cpus 4
