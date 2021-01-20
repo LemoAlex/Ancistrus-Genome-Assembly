@@ -58,9 +58,14 @@ Next, many-to-one mouse-to-human alignments were made:
 
 lastal -m100 -E0.05 -C2 -p hg38-mm10.mat hg38-MAM4 mm10.fa | last-split -m1 > hg38-mm10-1.maf
 
-1. nice -n 19 lastdb -P0 -uMAM4 -R01 Ch.catfish /home/alexandre/circos/create.input/ncbi-genomes-2020-10-26/GCA_001660625.2_IpCoco_1.2_genomic.fna -P3
-2. nice -n 19 /home/alexandre/last-1133/scripts/last-train -P0 --revsym --matsym --gapsym -E0.00005 -C2 Ch.catfish /home/alexandre/funannotate/AncTri.masked.fa > Ict-Anc.mat
+1. nice -n 19 /home/alexandre/last-1133/src/lastdb -P0 -uMAM4 -R01 Ch.catfish /home/alexandre/circos/create.input/ncbi-genomes-2020-10-26/GCA_001660625.2_IpCoco_1.2_genomic.fna 
+2. nice -n 19 /home/alexandre/last-1133/scripts/last-train -P0 --revsym --matsym --gapsym -E0.0005 -C2 Ch.catfish /home/alexandre/funannotate/AncTri.masked.fa > Ict-Anc.mat
 3. nice -n 19 /home/alexandre/last-1133/src/lastal -e-5 -C2 -p Ict-Anc.mat Ch.catfish /home/alexandre/funannotate/AncTri.masked.fa -f tab > Ict-Anc.tab
 
-/home/alexandre/last-1133/src/lastdb -c Ch.catfish /home/alexandre/circos/create.input/ncbi-genomes-2020-10-26/GCA_001660625.2_IpCoco_1.2_genomic.fna -P0
- /home/alexandre/last-1133/src/lastal -e34 Ch.catfish 1M.fa -f tab -P0 >1m.tab
+/home/alexandre/last-1133/src/lastdb -E0.005 -c Ch.catfish /home/alexandre/circos/create.input/ncbi-genomes-2020-10-26/GCA_001660625.2_IpCoco_1.2_genomic.fna -P0
+ /home/alexandre/last-1133/src/lastal -e34 Ch.catfish 1M.fa -f tab -P0 -E 0.00005 > 1mE005.tab
+ 
+ 
+1. nice -n 19 /home/alexandre/last-1133/src/lastdb -P0 -uMAM4 -R01 Ch.catfish /home/alexandre/circos/create.input/ncbi-genomes-2020-10-26/GCA_001660625.2_IpCoco_1.2_genomic.fna 
+2. nice -n 19 /home/alexandre/last-1133/scripts/last-train -P0 --revsym --matsym --gapsym -E0.0005 -C2 Ch.catfish ../1M.fa > 1M.mat
+3. nice -n 19 /home/alexandre/last-1133/src/lastal -E0.0005 -C2 -p 1M.mat Ch.catfish /../1M.fa -f tab > 1M.2.tab
