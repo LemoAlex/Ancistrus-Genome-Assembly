@@ -78,7 +78,6 @@ last-postmask hg38-panTro5-2.maf |maf-convert -n tab |awk -F'=' '$2 <= 1e-5' > h
 
 
 
-lastdb -P0 -uMAM4 -R01 hg38-MAM4 hg38_no_alt_analysis_set.fa
 nice -n 19 /home/alexandre/last-1133/scripts/last-train -P0 --revsym --matsym --gapsym -E0.05 -C2 Ch.catfish /home/alexandre/last-1133/synteny/1M/1M.fa > 1M.mat
 /home/alexandre/last-1133/src/lastal -m100 -P0 -E0.05 -C2 -p 1M.mat Ch.catfish /home/alexandre/last-1133/synteny/1M/1M.fa | /home/alexandre/last-1133/src/last-split -m1 > 1M.maf
 /home/alexandre/last-1133/scripts/maf-swap 1M.maf |awk '/^s/ {$2 = (++s % 2 ? "Anc_" : "Ict_") $2} 1' |/home/alexandre/last-1133/src/last-split -m1 |/home/alexandre/last-1133/scripts/maf-swap > 1M.2.maf
