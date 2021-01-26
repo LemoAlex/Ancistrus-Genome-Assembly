@@ -100,7 +100,7 @@ nice -n 19 ./busco -i /home/alexandre/Transcriptomics/Trinity.fasta -l actinopte
 
 
 nice -n 19 RepeatMasker AncTri.Genome.Final.fasta -norna -parallel 2 –pvalue 1e-4 -species actinopterygii
-
+rmOut2Fasta.pl
 
 ###Annotation and prediction
 export AUGUSTUS_CONFIG_PATH=/home/alexandre/augustus-3.3.3/config/
