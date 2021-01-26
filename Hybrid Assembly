@@ -91,12 +91,16 @@ nice -n 19 ./busco -i /home/alexandre/Transcriptomics/Trinity.fasta -l actinopte
 
 ##RepeatModel
 ./dfam-tetools.sh
-BuildDatabase -name Ancistrus_db AncTri.Genome.Final.fasta
-    nohup <RepeatModelerPath>/RepeatModeler -database Ancistrus_db  -pa 20 -LTRStruct >& run.out &
+#BuildDatabase -name Ancistrus_db AncTri.Genome.Final.fasta
+ #   nohup <RepeatModelerPath>/RepeatModeler -database Ancistrus_db  -pa 20 -LTRStruct >& run.out &
 ##repeatmasker
 
-RepeatMasker /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -nolow-no_is -norna -parallel 1 -noLowSimple –pvalue 1e-4
+#RepeatMasker /home/alexandre/AGOUTI/Ancistrus/Ancistrus.best.fasta -nolow-no_is -norna -parallel 1 -noLowSimple –pvalue 1e-4
 #RepeatMasker -s -lib ~/consensi.fa.classified -dir ~/my_RM_output_dir_Aug11 -e ncbi ~/database/LS_genome.fa
+
+
+nice -n 19 RepeatMasker AncTri.Genome.Final.fasta -norna -parallel 2 –pvalue 1e-4 -species actinopterygii
+
 
 ###Annotation and prediction
 export AUGUSTUS_CONFIG_PATH=/home/alexandre/augustus-3.3.3/config/
