@@ -120,6 +120,6 @@ funannotate remote -i /home/alexandre/funannotate/train/fun.train.1/ -m antismas
 ./funannotate-docker annotate -i /home/alexandre/funannotate/train/fun.train.1/ --cpus 6 --sbt yourSBTfile.txt
 
 ##masking with repeatmasker
-nice -n 19 ../funannotate-docker train -i /home/alexandre/funannotate/AncTri.Genome.Final.fasta.masked -s Adoli_noadapt_onlyAdoli_full.fq.qtrim.fq -o fun.train.1
+nice -n 19 ./funannotate-docker train -i /home/alexandre/funannotate/AncTri.Genome.Final.fasta.masked -s Adoli_noadapt_onlyAdoli_full.fq.qtrim.fq -o fun.RM.1
 
 
