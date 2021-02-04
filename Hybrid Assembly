@@ -124,6 +124,7 @@ nice -n 19 ./funannotate-docker train -i /home/alexandre/funannotate/AncTri.Geno
 nice -n 19 ./funannotate-docker predict -i /home/alexandre/funannotate/AncTri.Genome.Final.fasta.masked -o fun.RM.1 -s "AncTri.Genome.Final" --optimize_augustus --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --cpus 6
 
 
--i ~/funannotate/AncTri.masked.fa -o ./output1 -s "Ancistrus Triradiatus" --transcript_evidence /home/alexandre/funannotate/Alignment/Tran.fa --optimize_augustus --other_gff /home/alexandre/funannotate/Tran.fa.transdecoder.gff3  --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --organism other --rna_bam ~/funannotate/sorted.bam --busco_db actinopterygii --weights codingquarry:1 --cpus 4
+-i ~/funannotate/AncTri.masked.fa -o ./output1 -s "Ancistrus Triradiatus" --transcript_evidence /home/alexandre/funannotate/Alignment/Tran.fa --optimize_augustus --other_gff /home/alexandre/funannotate/Tran.fa.transdecoder.gff3  --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --organism other --rna_bam ~/funannotate/sorted.bam --busco_db actinopterygii --weights codingquarry:1 snap:0 GlimmerHMM: 0 --cpus 7
 
+ nice -n 19 ./funannotate-docker predict -i /home/alexandre/funannotate/AncTri.Genome.Final.fasta.masked -o fun.RM.1 -s AncTri.Genome.Final --optimize_augustus --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --weights codingquarry:0 snap:0 GlimmerHMM:0 --repeats2evm --cpus 7
 
