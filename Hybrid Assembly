@@ -128,3 +128,7 @@ nice -n 19 ./funannotate-docker predict -i /home/alexandre/funannotate/AncTri.Ge
 
  nice -n 19 ./funannotate-docker predict -i /home/alexandre/funannotate/AncTri.Genome.Final.fasta.masked -o fun.RM.1 -s AncTri.Genome.Final --optimize_augustus --protein_evidence uniprot-catfish-reviewed.fasta uniprot-zebrafish-reviewed.fasta --weights codingquarry:0 snap:0 GlimmerHMM:0 --repeats2evm --cpus 7
 
+
+
+./funannotate-docker annotate -i /fun.RM.1 --cpus 6 --sbt yourSBTfile.txt
+
